@@ -1,20 +1,67 @@
 const express = require('express');
 const app = express();
 let PORT = process.env.PORT || 5000;
+const bodyParser = require('body-parser')
+
 
 app.use(express.json());
 app.use(express.static('server/public'));
 
 // Global variable that will contain all of the
 // calculation objects:
-let calculations = []
+let calculations = [
+  {
+    numOne: 2,
+    numTwo: 3,
+    operator: '+',
+    result: 5
+  },
+  {
+    numOne: 16,
+    numTwo: 6,
+    operator: '-',
+    result: 10
+},
+{
+    numOne: 4,
+    numTwo: 9,
+    operator: '*',
+    result: 36
+},
+{
+    numOne: 144,
+    numTwo: 12,
+    operator: '/',
+    result: 12
+}
+]
 
 
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
-
+app.get('/calculations', (req, res) => {
+res.send(calculations)
+})
 // POST /calculations
+
+app.post('/calculations', function (req, res) {
+  console.log(req.body);
+  let newcalculation = req.body;
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
