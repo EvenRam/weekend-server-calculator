@@ -3,18 +3,86 @@ const app = express();
 let PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+
 app.use(express.static('server/public'));
 
-// Global variable that will contain all of the
-// calculation objects:
-let calculations = []
+// Global variable that will contain all of the calculation objects:
+let calculations = [
+  {
+    numOne: 3,
+    numTwo: 5,
+    operator: '+',
+    result: 8
+  },
+  {
+    numOne: 11,
+    numTwo: 7,
+    operator: '-',
+    result: 4
+  },
+   {
+    numOne: 10,
+    numTwo: 7,
+    operator: '*',
+    result: 70
+  },
+  {
+    numOne: 60,
+    numTwo: 2,
+    operator: '/',
+    result: 30
+  }]
+
+// * GET Route to return calcualation objects-  path, Callback function (arrow function)
+  // All routes on a server must respond with something! (A status code, or data)
+
+app.get('/calculations', (req, res) => {
+
+  
+  // * Sending some data
+  res.send(calculations)
+  
+})
 
 
-// Here's a wonderful place to make some routes:
 
-// GET /calculations
 
-// POST /calculations
+
+//POST /calculations
+
+app.post('/calculations', (req, res) => {
+
+  console.log(" Going to add new calculations: ", req.body )
+
+  calculations.push(req.body)
+  console.log(" Incoming calculations...",calculations )
+  
+  // You always have to respond, even if its not data
+  res.send(201)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:

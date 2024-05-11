@@ -14,8 +14,7 @@ Your task is to create a calculator app that demonstrates your understanding of 
 #### Client-Side:
 
 * Inside the `<section data-testid="resultHistory">` element, display a list of all previous calculations on the page when it loads (using a `GET '/calculations'` request). 
-  * Update this list when a new calculation is made.
-* Inside the `<section data-testid="recentResult">` element, display the most recent calculation **result**.
+n* Inside the `<section data-testid="recentResult">` element, display the most recent calculation **result**.
   * Update this when a new calculation is made.
 * Inside `<form data-testid="calculator">`:
   * Create a user interface where the user can input two values and select a mathematical operator.
