@@ -49,9 +49,11 @@ app.get('/calculations', (req, res) => {
 
 
 
-//POST /calculations
+//POST /calculations--- need a post for each operation 
 
 app.post('/calculations', (req, res) => {
+
+  
 
   console.log(" Going to add new calculations: ", req.body )
 

@@ -9,13 +9,13 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
-      <input data-testid="numOne" placeholder="First Number">
-      <button>+</button>
+    <form onSubmit="userInputForCalc(event)" data-testid="calculator">
+      <input id = "inputNumOne" data-testid="numOne" placeholder="First Number">
+      <button >+</button>
       <button>-</button>
       <button>*</button>
       <button>/</button>
-      <input data-testid="numTwo" placeholder="Second Number">
+      <input id = "inputNumTwo" data-testid="numTwo" placeholder="Second Number">
       <button>=</button>
       <button>C</button>
     </form>

@@ -90,26 +90,41 @@ onReady(
 
 ***   * Update this list when a new calculation is made.
 
-`let recentCalculation = document.getElementById('recentResult')`
+Inside the `<section data-testid="recentResult">` element, display the most recent calculation **result**.
+`recentCalculation = document.getElementById('recentResult')`
 
-       `historyCalc.innerhtml =`
+       `.innerhtml =`
 
          `<h2></h2>`
 
-Render the entire calcuatation history:
- ---- we need to loop throught getCalcHistory array of object to list and display in the section
+//Render the entire calcuatation history:
+ // we need to loop throught getCalcHistory array of object to list and display in the section
 
-  `lethistoryCalcList = document.getElementById('renderResultHistory').innerhtml +=`
+  `let historyCalcList = document.getElementById('renderResultHistory').innerhtml +=`
        
      `<li> ${} ${} ${} = ${} </li>`
 
 }
 
+** HTML
+*  inside the form
+    -user can input values and select operater
+    - each operater is represtend by a button  
+        -- create onsubmit for each input in HTML
+            `<onSubmit="inputOne(event)">`
 
-Clear out the contents of the ul
+*** CLIENT  **
+-- get the user inputs from the number and operator 
+--send to post request to calcualations 
+    -- should look like this:   
+         * `{ numOne: 25, numTwo: 10, operator: '+' }`
+--when the user clicks on he 'c' button, clear inputs 
 
-
-         `
-
+function  (event){
+    event.preventDefault
+let numOne = numOne
+let numTwo = numTwo
+Let Operator = operator 
+}
 
             
