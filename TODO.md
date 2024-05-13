@@ -50,7 +50,10 @@
   * After this successful calculation, the `POST` route must send status `201` back to the client.
   * 🔥 Note: **Do not use** the built-in JS `eval()` function. It's incredibly dangerous to obtain user input and *execute it as code*! -->
 
+POST ROUTE: 
+recieving the the values from the users inputs:
 
+let doMath = req.bod
 
 
 

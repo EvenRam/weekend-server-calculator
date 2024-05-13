@@ -62,6 +62,8 @@ event.preventDefault()
 let numOne = Number(document.getElementById("inputNumOne").value)
 let numTwo = Number(document.getElementById("inputNumTwo").value)
 
+
+//hard code to do addition
 let operator = "+"
 
 // create an object that will be sent to the post route 
@@ -73,12 +75,22 @@ let doMath = {
 }
 
  console.log("do math", doMath)
+
+
+// send to Post route:
+
+axios({
+    method: "POST",
+    url: "/calculations",
+    data:doMath
+})
+.then((response) => {
+console.log(" our post request got a response")
+})
+.catch((error)=> {
+    console.log('userInputForCalc failed', error)
+})
 }
-
-
-
-
-
 
 OnReady()
 

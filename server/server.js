@@ -52,13 +52,34 @@ app.get('/calculations', (req, res) => {
 //POST /calculations--- need a post for each operation 
 
 app.post('/calculations', (req, res) => {
+ 
+  // recieving the the values from the users inputs:
+// looks like: `{ numOne: 25, numTwo: 10, operator: '+' }`
+// and will do the math with the result value
 
+  let doMath = req.body
+// if the operater equals +
+// create variable and add doMath.numOne + doMath.numtwo
+// need to set result to domath.result 
+  if(doMath.operator === ("+")){
+        let result = doMath.numOne + doMath.numTwo
+        doMath.result = result
+  } else if( doMath.operator = ("-")){
+        let result = doMath.numOne + doMath.numTwo
+        doMath.result = result
+  }else if( doMath.operator = ("*")){
+    let result = doMath.numOne + doMath.numTwo
+    doMath.result = result
+  }else if( doMath.operator = ("/")){
+      let result = doMath.numOne + doMath.numTwo
+      doMath.result = result
+  }
   
 
+calculations.push(doMath)
   console.log(" Going to add new calculations: ", req.body )
 
-  calculations.push(req.body)
-  console.log(" Incoming calculations...",calculations )
+  console.log(" Incoming calculations...",doMath )
   
   // You always have to respond, even if its not data
   res.send(201)
