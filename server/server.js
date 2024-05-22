@@ -8,31 +8,31 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('server/public'));
 
 // Global variable that will contain all of the calculation objects:
-let calculations = [
-  {
-    numOne: 3,
-    numTwo: 5,
-    operator: '+',
-    result: 8
-  },
-  {
-    numOne: 11,
-    numTwo: 7,
-    operator: '-',
-    result: 4
-  },
-   {
-    numOne: 10,
-    numTwo: 7,
-    operator: '*',
-    result: 70
-  },
-  {
-    numOne: 60,
-    numTwo: 2,
-    operator: '/',
-    result: 30
-  }]
+let calculations = []
+  // {
+  //   numOne: 3,
+  //   numTwo: 5,
+  //   operator: '+',
+  //   result: 8
+  // },
+  // {
+  //   numOne: 11,
+  //   numTwo: 7,
+  //   operator: '-',
+  //   result: 4
+  // },
+  //  {
+  //   numOne: 10,
+  //   numTwo: 7,
+  //   operator: '*',
+  //   result: 70
+  // },
+  // {
+  //   numOne: 60,
+  //   numTwo: 2,
+  //   operator: '/',
+  //   result: 30
+  // }]
 
 // * GET Route to return calcualation objects-  path, Callback function (arrow function)
   // All routes on a server must respond with something! (A status code, or data)
@@ -49,6 +49,7 @@ app.get('/calculations', (req, res) => {
 
 
 
+
 //POST /calculations--- need a post for each operation 
 
 app.post('/calculations', (req, res) => {
@@ -58,22 +59,9 @@ app.post('/calculations', (req, res) => {
 // and will do the math with the result value
 
   let doMath = req.body
-// if the operater equals +
-// create variable and add doMath.numOne + doMath.numtwo
-// need to set result to domath.result 
-  if(doMath.operator === ("+")){
-        let result = doMath.numOne + doMath.numTwo
-        doMath.result = result
-  } else if( doMath.operator = ("-")){
-        let result = doMath.numOne + doMath.numTwo
-        doMath.result = result
-  }else if( doMath.operator = ("*")){
-    let result = doMath.numOne + doMath.numTwo
-    doMath.result = result
-  }else if( doMath.operator = ("/")){
-      let result = doMath.numOne + doMath.numTwo
-      doMath.result = result
-  }
+
+  let result = calculate(doMath)
+doMath.result=result
   
 
 calculations.push(doMath)
@@ -85,7 +73,23 @@ calculations.push(doMath)
   res.send(201)
 })
 
-
+function calculate(calcualation){
+let numOne = calcualation.numOne
+let numTwo= calcualation.numTwo
+let operator = calcualation.operator
+  // if the operater equals +
+// create variable and add doMath.numOne + doMath.numtwo
+// need to set result to domath.result 
+if(operator === "+"){
+ return  numOne + numTwo
+} else if( operator === "-"){
+  return  numOne - numTwo
+}else if( operator === "*"){
+  return  numOne * numTwo
+}else if( operator === "/"){
+  return  numOne / numTwo
+}
+}
 
 
 
